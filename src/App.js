@@ -2,15 +2,15 @@ import ExpenseItem from './components/ExpenseItem';
 const expenses = [
   {title : "Old Monk",
   price : "$24.39",
-  date : "2022-11-26"
+  date : new Date(2022,11,26)
    },
   {title : "Bus Tickets",
   price : "$4.69",
-  date : "2022-11-21"
+  date :new Date(2022,11,21)
    },
   {title : "Movie",
   price : "$5.40",
-  date : "2022-11-31"
+  date : new Date(2022,11,23)
    },
 ]
 function App() {
