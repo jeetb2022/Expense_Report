@@ -1,6 +1,7 @@
 import ExpenseItem from '../Expenses/ExpenseItem';
 import Card from '../UI/Card';
 import '../Expenses/Expenses.css';
+import NewExpenseObject from '../NewExpense/ExpenseForm'
 const expenses = [
     {title : "Old Monk",
     price : "$24.39",
@@ -15,6 +16,7 @@ const expenses = [
     date : new Date(2022,11,23)
      },
   ];
+  expenses.push(NewExpenseObject.NewExpenseObject);
   function Expenses (){
     return (
         <Card className="expenses">
