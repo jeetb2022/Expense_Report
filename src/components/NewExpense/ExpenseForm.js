@@ -1,7 +1,7 @@
 import './ExpenseForm.css';
 import { useState } from 'react';
 
-const ExpenseForm = ()=>{
+const ExpenseForm = (props)=>{
     const [title,setTitle] = useState("");
     const titleChangeHandler = (ele)=>{
         setTitle(ele.target.value);
@@ -21,7 +21,9 @@ const ExpenseForm = ()=>{
             amount : price,
             date : new Date(date),
         }
+
         console.log(expenseData);
+        props.onNewExpense(expenseData);
         setTitle("");
         setDate("");
         setPrice("");
@@ -87,8 +89,4 @@ return(
 )
 };
 
-export default {
-    ExpenseForm :ExpenseForm,
-
-
-};
+export default ExpenseForm;
