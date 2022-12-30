@@ -1,14 +1,29 @@
 import ExpenseItem from '../Expenses/ExpenseItem';
 import Card from '../UI/Card';
 import '../Expenses/Expenses.css';
-function Expenses (props){
-    return (
-        <Card className="expenses">
-          <ExpenseItem title ={props.expenses[0].title} date={props.expenses[0].date} price= {props.expenses[0].price} ></ExpenseItem>
-          <ExpenseItem title ={props.expenses[1].title} date={props.expenses[1].date} price= {props.expenses[1].price} ></ExpenseItem>
-          <ExpenseItem title ={props.expenses[2].title} date={props.expenses[2].date} price= {props.expenses[2].price} ></ExpenseItem>
-        </Card>
-    );
-        
-  }
-  export default Expenses;
+import ExpensesFilter from './ExpenseFilter';
+import { useState } from 'react';
+function Expenses(props) {
+  const [selectedYear, setSelectedYear] = useState('2022');
+  const expenseYearSelectionHandler = (expenseYear) => {
+    setSelectedYear(expenseYear);
+    console.log(expenseYear);
+  };
+  return (
+    <Card className="expenses">
+      <ExpensesFilter selected={selectedYear} onexpenseYearSelection={expenseYearSelectionHandler} />
+      {
+        props.expenses.map(
+          (expense) => {
+            return (
+            <ExpenseItem key={expense.id} title={expense.title} price={expense.price} date={expense.date} />
+            );
+          }
+        )
+      }
+
+    </Card>
+  );
+
+}
+export default Expenses;
