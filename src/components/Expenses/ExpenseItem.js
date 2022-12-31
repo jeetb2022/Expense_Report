@@ -13,7 +13,7 @@ function ExpenseItem (props){
             <ExpenseDate date={expenseDate}></ExpenseDate>
             <div className="expense-item_description">
                 <h2>{expenseTitle}</h2>
-                <div className="expense-item_price" >{expensePrice}</div>
+                <div className="expense-item_price" >${expensePrice}</div>
             </div>
         </Card>
         </li>

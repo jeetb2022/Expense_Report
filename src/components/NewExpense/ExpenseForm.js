@@ -80,7 +80,7 @@ return(
                 </div>
                 <div className="new-expense_control">
                     <label>Price</label>
-                    <input type="text" value={price} onChange={priceChangeHandler}/>
+                    <input type="number" value={price} onChange={priceChangeHandler}/>
                 </div>
 
             </div>

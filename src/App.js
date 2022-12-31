@@ -4,21 +4,21 @@ import { useState } from 'react';
 const expenses = [
   {
     id : Math.random().toString(),
-    title: "American Pride",
-    price: "$24.39",
-    date: new Date(2022, 11, 26)
+    title: "Book",
+    price: 2,
+    date: new Date(2022, 10, 26)
   },
   {
     id : Math.random().toString(),
     title: "Bus Tickets",
-    price: "$4.69",
-    date: new Date(2022, 11, 21)
+    price: 4,
+    date: new Date(2022, 9, 21)
   },
   {
     id : Math.random().toString(),
     title: "Movie",
-    price: "$5.40",
-    date: new Date(2022, 11, 23)
+    price: 5,
+    date: new Date(2022,8, 23)
   },
 ];
 function App() {
