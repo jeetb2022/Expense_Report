@@ -4,7 +4,7 @@ import { useState } from 'react';
 const expenses = [
   {
     id : Math.random().toString(),
-    title: "Old Monk",
+    title: "American Pride",
     price: "$24.39",
     date: new Date(2022, 11, 26)
   },

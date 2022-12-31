@@ -28,6 +28,10 @@ const ExpenseForm = (props)=>{
         setDate("");
         setPrice("");
     };
+
+    const clickHandler = ()=>{
+        props.disappearForm();
+    }
     //*************** alternative approach in the comments ***************
 
 //    const [enteredExpense,setEnteredExpense]= useState({
@@ -81,8 +85,10 @@ return(
 
             </div>
                 <div className="new-expense_action">
+            <button onClick={clickHandler}>
+                Cancel
+            </button>
                     <button type="submit">Add Expense</button>
-
                 </div>
         </form>
         
