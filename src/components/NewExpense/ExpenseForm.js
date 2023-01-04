@@ -46,7 +46,7 @@ const ExpenseForm = (props)=>{
 
 return(
 <div>
-        {error && <ErrorModal onCancel={onCancelHandler}/>};
+        {error ?<ErrorModal onCancel={onCancelHandler}/>: <div/>};
         <form onSubmit={submitHandler}>
             <div className="new-expense_controls">
                 <div className="new-expense_control">

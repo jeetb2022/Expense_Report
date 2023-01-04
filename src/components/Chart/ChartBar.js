@@ -8,7 +8,7 @@ if(props.maxValue > 0){
 return (
     <div className='chart-bar'>
         <div className='chart-bar_inner'>
-            <div className='chart-bar_fill' style={{height :barHeight}}>
+            <div className='chart-bar_fill' style={{height : barHeight}}>
             </div>
         </div>
         <div className='chart-bar_label'>
