@@ -1,4 +1,5 @@
 import './ExpenseForm.css';
+import ErrorModal from '../UI/ErrorModal';
 import { useState } from 'react';
 
 const ExpenseForm = (props)=>{
@@ -14,8 +15,14 @@ const ExpenseForm = (props)=>{
     const dateChangeHandler = (ele)=>{
         setDate(ele.target.value);
     };    
+
+    const [error,seterror]=useState(false);
     const submitHandler = (event)=>{
         event.preventDefault();
+        if(price.trim().length ===0 || title.trim().length ===0 ){
+            seterror(true);
+            return;
+        }
         const expenseData = {
             title : title,
             price : price,
@@ -32,42 +39,14 @@ const ExpenseForm = (props)=>{
     const clickHandler = ()=>{
         props.disappearForm();
     }
-    //*************** alternative approach in the comments ***************
 
-//    const [enteredExpense,setEnteredExpense]= useState({
-//         enteredTitle : "",
-//         enteredPrice : "",
-//         enteredDate : "" 
-//     });
-//     const titleChangeHandler = (ele)=>{
-//         // setEnteredExpense({
-//         //     ...enteredExpense,
-//         //     enteredTitle : ele.target.value,
-//         // })
-//         setEnteredExpense((prevState)=>{
-//             return({...prevState,enteredTitle : ele.target.value})
-//         })
-//     };
-//     const priceChangeHandler = (ele)=>{
-//         // setEnteredExpense({
-//         //     ...enteredExpense,
-//         //     enteredPrice : ele.target.value, 
-//         // })
-//         setEnteredExpense((prevState)=>{
-//             return({...prevState,enteredPrice : ele.target.value})
-//         })
-//     };
-//     const dateChangeHandler = (ele)=>{
-//         // setEnteredExpense({
-//         //     ...enteredExpense,
-//         //     enteredDate : ele.target.value,
-//         // })
-//         setEnteredExpense((prevState)=>{
-//             return({...prevState,enteredDate : ele.target.value})
-//         })
-//     };
-//     console.log(enteredExpense);
+    const onCancelHandler= ()=>{
+        seterror(false);
+    }
+
 return(
+<div>
+        {error && <ErrorModal onCancel={onCancelHandler}/>};
         <form onSubmit={submitHandler}>
             <div className="new-expense_controls">
                 <div className="new-expense_control">
@@ -91,7 +70,7 @@ return(
                     <button type="submit">Add Expense</button>
                 </div>
         </form>
-        
+</div>
 )
 };
 
