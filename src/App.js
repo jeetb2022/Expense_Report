@@ -32,6 +32,7 @@ function App() {
   };
   return (
     <div className='backGround'>
+      <div id="backdrop"></div>
       <NewExpense onlatestExpense={latestExpenseHandler} />
       <Expenses expenses={updatedExpenses} />
     </div>
